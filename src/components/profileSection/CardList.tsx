@@ -26,7 +26,7 @@ export default function CardList() {
     ];
 
     return (
-        <div>
+        <div className="grid grid-cols-3 gap-x-5">
             {DUMMY_AVATARS.map((avatar) => (
                 <Card
                     key={avatar.imageSrc}
