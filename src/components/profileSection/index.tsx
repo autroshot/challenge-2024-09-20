@@ -1,3 +1,4 @@
+import CardList from '@/components/profileSection/CardList';
 import Title from '@/components/Title';
 
 export default function ProfileSection() {
@@ -7,7 +8,9 @@ export default function ProfileSection() {
                 Snap photos and share like <br />
                 never before
             </Title>
-            <div className="pt-[4.375rem]">카드 목록</div>
+            <div className="pt-[4.375rem]">
+                <CardList />
+            </div>
         </section>
     );
 }
