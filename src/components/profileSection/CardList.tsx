@@ -25,9 +25,11 @@ export default function CardList() {
         },
     ];
 
+    const shuffledAvatars = shuffle(DUMMY_AVATARS);
+
     return (
         <div className="grid grid-cols-3 gap-x-5">
-            {DUMMY_AVATARS.map((avatar) => (
+            {shuffledAvatars.map((avatar) => (
                 <Card
                     key={avatar.imageSrc}
                     imageSrc={avatar.imageSrc}
@@ -37,6 +39,21 @@ export default function CardList() {
             ))}
         </div>
     );
+}
+
+// 참고 링크 (https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array)
+function shuffle<T>(array: Array<T>): Array<T> {
+    const arrayCopy = [...array];
+    let currentIndex = arrayCopy.length;
+
+    while (currentIndex !== 0) {
+        const randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex = currentIndex - 1;
+
+        [arrayCopy[currentIndex], arrayCopy[randomIndex]] = [arrayCopy[randomIndex], arrayCopy[currentIndex]];
+    }
+
+    return arrayCopy;
 }
 
 interface Avatar {
