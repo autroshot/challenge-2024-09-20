@@ -5,11 +5,9 @@ export default function EmailForm() {
     const [value, setValue] = useState('');
 
     const inputVariants = {
-        default:
-            'h-[3.125rem] w-[31.25rem] rounded-[7px] border border-solid border-white bg-[#ffffff1a] py-4 pl-4 pr-[3.125rem] font-exo-2 text-base tracking-[-0.015rem] text-white backdrop-blur-[0.625rem] placeholder:font-exo-2 placeholder:text-base placeholder:tracking-[-0.015rem] placeholder:text-white focus:outline-none',
-        valid: 'h-[3.125rem] w-[31.25rem] rounded-[7px] border border-solid border-[#00C300] bg-[#ffffff1a] py-4 pl-4 pr-[3.125rem] font-exo-2 text-base tracking-[-0.015rem] text-white backdrop-blur-[0.625rem] placeholder:font-exo-2 placeholder:text-base placeholder:tracking-[-0.015rem] placeholder:text-white focus:outline-none',
-        inValid:
-            'h-[3.125rem] w-[31.25rem] rounded-[7px] border border-solid border-[#FF6633] bg-[#ffffff1a] py-4 pl-4 pr-[3.125rem] font-exo-2 text-base tracking-[-0.015rem] text-white backdrop-blur-[0.625rem] placeholder:font-exo-2 placeholder:text-base placeholder:tracking-[-0.015rem] placeholder:text-white focus:outline-none',
+        default: 'border-white',
+        valid: 'border-[#00C300]',
+        inValid: 'border-[#FF6633]',
     };
 
     const isEmpty = value.length === 0;
@@ -37,7 +35,7 @@ export default function EmailForm() {
                         placeholder="Enter your email"
                         value={value}
                         onChange={handleChange}
-                        className={inputClass}
+                        className={`h-[3.125rem] w-[31.25rem] rounded-[7px] border border-solid bg-[#ffffff1a] py-4 pl-4 pr-[3.125rem] font-exo-2 text-base tracking-[-0.015rem] text-white backdrop-blur-[0.625rem] placeholder:font-exo-2 placeholder:text-base placeholder:tracking-[-0.015rem] placeholder:text-white focus:outline-none ${inputClass}`}
                     />
                     <button type="submit" className="absolute inset-y-0 right-[10px]" disabled={isEmpty || !isValid}>
                         <img
