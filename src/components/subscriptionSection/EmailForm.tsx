@@ -3,6 +3,9 @@ import { useState } from 'react';
 export default function EmailForm() {
     const [value, setValue] = useState('');
 
+    const isValid = validateEmail(value);
+    console.log(isValid);
+
     return (
         <form action="" noValidate onSubmit={handleSubmit}>
             <div>
@@ -38,5 +41,11 @@ export default function EmailForm() {
 
     function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
         setValue(e.target.value);
+    }
+
+    function validateEmail(string: string) {
+        const regexp = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,}$/g;
+
+        return regexp.test(string);
     }
 }
