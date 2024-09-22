@@ -4,14 +4,14 @@ import { useState } from 'react';
 export default function EmailForm() {
     const [value, setValue] = useState('');
 
+    const isEmpty = value.length === 0;
+    const isValid = validateEmail(value);
+
     const inputVariants = {
         default: 'border-white',
         valid: 'border-[#00C300]',
         inValid: 'border-[#FF6633]',
     };
-
-    const isEmpty = value.length === 0;
-    const isValid = validateEmail(value);
 
     const inputClass = isEmpty ? inputVariants.default : isValid ? inputVariants.valid : inputVariants.inValid;
 
