@@ -1,3 +1,4 @@
+import paperPlaneUrl from '@/assets/paper-plane.svg';
 import { useState } from 'react';
 
 export default function EmailForm() {
@@ -16,16 +17,21 @@ export default function EmailForm() {
                     Subscribe to our newsletter
                 </label>
             </div>
-            <div className="mt-4">
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Enter your email"
-                    value={value}
-                    onChange={handleChange}
-                    className="h-[3.125rem] w-[31.25rem] rounded-[7px] border border-solid border-white bg-[#ffffff1a] py-4 pl-4 pr-[3.125rem] font-exo-2 text-base tracking-[-0.015rem] text-white backdrop-blur-[0.625rem] placeholder:font-exo-2 placeholder:text-base placeholder:tracking-[-0.015rem] placeholder:text-white"
-                />
+            <div className="mt-4 flex justify-center">
+                <div className="relative w-max">
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        value={value}
+                        onChange={handleChange}
+                        className="h-[3.125rem] w-[31.25rem] rounded-[7px] border border-solid border-white bg-[#ffffff1a] py-4 pl-4 pr-[3.125rem] font-exo-2 text-base tracking-[-0.015rem] text-white backdrop-blur-[0.625rem] placeholder:font-exo-2 placeholder:text-base placeholder:tracking-[-0.015rem] placeholder:text-white"
+                    />
+                    <button type="submit" className="absolute inset-y-0 right-[10px]" disabled>
+                        <img src={paperPlaneUrl} alt="submit button" className="opacity-50" />
+                    </button>
+                </div>
             </div>
         </form>
     );
