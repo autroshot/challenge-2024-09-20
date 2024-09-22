@@ -44,7 +44,7 @@ export default function EmailForm() {
     }
 
     function validateEmail(string: string) {
-        const regexp = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,}$/g;
+        const regexp = /^[\w-.]+@([\w-]+\.)+[\w-]{2,}$/g;
 
         return regexp.test(string);
     }
