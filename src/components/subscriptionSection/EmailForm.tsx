@@ -12,7 +12,6 @@ export default function EmailForm() {
 
     const isEmpty = value.length === 0;
     const isValid = validateEmail(value);
-    console.log(isValid);
 
     const inputClass = isEmpty ? inputVariants.default : isValid ? inputVariants.valid : inputVariants.inValid;
 
