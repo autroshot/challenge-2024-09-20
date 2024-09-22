@@ -4,11 +4,13 @@ import sagradaFamiliaImageUrl from '@/assets/sagrada-familia.webp';
 import saintBasilsCathedralImageUrl from '@/assets/saint-basils-cathedral.webp';
 import Button from '@/components/landmarkSection/Button';
 import CardList from '@/components/landmarkSection/CardList';
+import RoundedButton from '@/components/landmarkSection/RoundedButton';
 import Title from '@/components/Title';
 import { useState } from 'react';
 
 export default function LandmarkSection() {
     const [regionValue, setRegionValue] = useState<RegionValue>('All');
+    const [yearRange, setYearRange] = useState([1000, 1300]);
 
     const DUMMY_LANDMARKS: Array<Landmark> = [
         {
@@ -46,13 +48,23 @@ export default function LandmarkSection() {
     ];
     const regionValues: Array<RegionValue> = ['All', 'Asia', 'Europe', 'America', 'Oceania'];
 
-    const filteredLandmarks: Array<Landmark> = [];
+    const filteredLandmarks1: Array<Landmark> = [];
     if (regionValue === 'All') {
-        DUMMY_LANDMARKS.forEach((landmark) => filteredLandmarks.push(landmark));
+        DUMMY_LANDMARKS.forEach((landmark) => filteredLandmarks1.push(landmark));
     } else {
         DUMMY_LANDMARKS.forEach((landmark) => {
             if (landmark.region === regionValue) {
-                filteredLandmarks.push(landmark);
+                filteredLandmarks1.push(landmark);
+            }
+        });
+    }
+
+    const filteredLandmarks2: Array<Landmark> = [];
+    const isSelection = yearRange.length === 1;
+    if (!isSelection) {
+        filteredLandmarks1.forEach((landmark) => {
+            if (landmark.year >= yearRange[0] && landmark.year <= yearRange[1]) {
+                filteredLandmarks2.push(landmark);
             }
         });
     }
@@ -71,10 +83,141 @@ export default function LandmarkSection() {
                         />
                     ))}
                 </div>
-                <div>연도 필터</div>
+                <div className="relative flex flex-row items-center gap-[4.75rem] rounded-[25px] border border-solid border-[#00000080] p-[5px]">
+                    <RoundedButton
+                        number={1000}
+                        active={
+                            (yearRange.length === 1 && yearRange[0] === 1000) ||
+                            (1000 >= yearRange[0] && 1000 <= yearRange[1])
+                        }
+                        handleClick={() => {
+                            const newYearRange = [...yearRange];
+
+                            if (newYearRange.length === 1 && newYearRange[0] === 1000) return;
+                            if (newYearRange.length === 2) {
+                                newYearRange.length = 0;
+                                newYearRange.push(1000);
+
+                                setYearRange(newYearRange);
+
+                                return;
+                            }
+                            newYearRange.unshift(1000);
+
+                            setYearRange(newYearRange);
+
+                            return;
+                        }}
+                    />
+                    <div
+                        className={`absolute left-3 -z-10 h-[10px] w-[116.66px] ${yearRange.length === 2 && yearRange[0] === 1000 ? 'bg-black' : 'bg-[#999999]'}`}
+                    />
+                    <RoundedButton
+                        number={1300}
+                        active={
+                            (yearRange.length === 1 && yearRange[0] === 1300) ||
+                            (1300 >= yearRange[0] && 1300 <= yearRange[1])
+                        }
+                        handleClick={() => {
+                            const newYearRange = [...yearRange];
+
+                            if (newYearRange.length === 1 && newYearRange[0] === 1300) return;
+                            if (newYearRange.length === 2) {
+                                newYearRange.length = 0;
+                                newYearRange.push(1300);
+
+                                setYearRange(newYearRange);
+
+                                return;
+                            }
+                            if (newYearRange[0] < 1300) {
+                                newYearRange.push(1300);
+
+                                setYearRange(newYearRange);
+
+                                return;
+                            }
+                            newYearRange.unshift(1300);
+
+                            setYearRange(newYearRange);
+
+                            return;
+                        }}
+                    />
+                    <div
+                        className={`absolute left-[141px] -z-10 h-[10px] w-[116.66px] ${yearRange.length === 2 && yearRange[0] <= 1300 && yearRange[1] >= 1700 ? 'bg-black' : 'bg-[#999999]'}`}
+                    />
+                    <RoundedButton
+                        number={1700}
+                        active={
+                            (yearRange.length === 1 && yearRange[0] === 1700) ||
+                            (1700 >= yearRange[0] && 1700 <= yearRange[1])
+                        }
+                        handleClick={() => {
+                            const newYearRange = [...yearRange];
+
+                            if (newYearRange.length === 1 && newYearRange[0] === 1700) return;
+                            if (newYearRange.length === 2) {
+                                newYearRange.length = 0;
+                                newYearRange.push(1700);
+
+                                setYearRange(newYearRange);
+
+                                return;
+                            }
+                            if (newYearRange[0] < 1700) {
+                                newYearRange.push(1700);
+
+                                setYearRange(newYearRange);
+
+                                return;
+                            }
+                            newYearRange.unshift(1700);
+
+                            setYearRange(newYearRange);
+
+                            return;
+                        }}
+                    />
+                    <div
+                        className={`absolute left-[257px] -z-10 h-[10px] w-[116.66px] ${yearRange.length === 2 && yearRange[1] === 2000 ? 'bg-black' : 'bg-[#999999]'}`}
+                    />
+                    <RoundedButton
+                        number={2000}
+                        active={
+                            (yearRange.length === 1 && yearRange[0] === 2000) ||
+                            (2000 >= yearRange[0] && 2000 <= yearRange[1])
+                        }
+                        handleClick={() => {
+                            const newYearRange = [...yearRange];
+
+                            if (newYearRange.length === 1 && newYearRange[0] === 2000) return;
+                            if (newYearRange.length === 2) {
+                                newYearRange.length = 0;
+                                newYearRange.push(2000);
+
+                                setYearRange(newYearRange);
+
+                                return;
+                            }
+                            if (newYearRange[0] < 2000) {
+                                newYearRange.push(2000);
+
+                                setYearRange(newYearRange);
+
+                                return;
+                            }
+                            newYearRange.unshift(2000);
+
+                            setYearRange(newYearRange);
+
+                            return;
+                        }}
+                    />
+                </div>
             </div>
-            <div className="mt-[4.25rem]">
-                <CardList landmarks={filteredLandmarks} />
+            <div className="mt-[4.25rem] flex flex-row gap-5">
+                <CardList landmarks={filteredLandmarks2} isSelecting={isSelection} />
             </div>
         </section>
     );
