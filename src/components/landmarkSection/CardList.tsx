@@ -3,7 +3,7 @@ import Card from '@/components/landmarkSection/Card';
 
 export default function CardList({ landmarks }: Props) {
     return (
-        <div className="grid grid-cols-3 gap-x-5">
+        <div className="flex flex-row gap-x-10 overflow-x-auto">
             {landmarks.map((landmark) => (
                 <Card
                     key={landmark.imageUrl}

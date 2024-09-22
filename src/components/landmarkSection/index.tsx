@@ -41,7 +41,9 @@ export default function LandmarkSection() {
         <section className="px-20 pb-20 pt-[7.5rem]">
             <Title>Duis tincidunt ut ligula vitae mollis.</Title>
             <div className="mt-[3.75rem]">필터</div>
-            <CardList landmarks={DUMMY_LANDMARKS} />
+            <div className="mt-[4.25rem]">
+                <CardList landmarks={DUMMY_LANDMARKS} />
+            </div>
         </section>
     );
 }
