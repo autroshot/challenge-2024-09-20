@@ -2,7 +2,7 @@ import fallingwaterImageUrl from '@/assets/fallingwater.webp';
 import picaImageUrl from '@/assets/pica.webp';
 import sagradaFamiliaImageUrl from '@/assets/sagrada-familia.webp';
 import saintBasilsCathedralImageUrl from '@/assets/saint-basils-cathedral.webp';
-import Button from '@/components/landmarkSection/button';
+import Button from '@/components/landmarkSection/Button';
 import CardList from '@/components/landmarkSection/CardList';
 import Title from '@/components/Title';
 import { useState } from 'react';
