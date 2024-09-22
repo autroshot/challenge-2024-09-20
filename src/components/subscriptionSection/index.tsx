@@ -1,4 +1,4 @@
-import defaultBackgroundImageUrl from '@/assets/default-background.jpg';
+import defaultBackgroundImageUrl from '@/assets/default-background-image.jpg';
 import Description from '@/components/subscriptionSection/Description';
 import EmailForm from '@/components/subscriptionSection/EmailForm';
 import axios from 'axios';
