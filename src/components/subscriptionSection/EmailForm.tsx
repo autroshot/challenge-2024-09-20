@@ -24,6 +24,7 @@ export default function EmailForm() {
                     placeholder="Enter your email"
                     value={value}
                     onChange={handleChange}
+                    className="h-[3.125rem] w-[31.25rem] rounded-[7px] border border-solid border-white bg-[#ffffff1a] py-4 pl-4 pr-[3.125rem] font-exo-2 text-base tracking-[-0.015rem] text-white backdrop-blur-[0.625rem] placeholder:font-exo-2 placeholder:text-base placeholder:tracking-[-0.015rem] placeholder:text-white"
                 />
             </div>
         </form>
