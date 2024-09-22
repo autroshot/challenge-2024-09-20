@@ -31,6 +31,7 @@ export default function EmailForm() {
 
     function handleSubmit(e: React.SyntheticEvent) {
         e.preventDefault();
+
         const target = e.target as typeof e.target & {
             email: { value: string };
         };
