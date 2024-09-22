@@ -1,11 +1,11 @@
-import defaultBackgroundUrl from '@/assets/default-background.jpg';
+import defaultBackgroundImageUrl from '@/assets/default-background.jpg';
 import Description from '@/components/subscriptionSection/Description';
 import EmailForm from '@/components/subscriptionSection/EmailForm';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 export default function SubscriptionSection() {
-    const [backgroundImageUrl, setBackgroundImageUrl] = useState(defaultBackgroundUrl);
+    const [backgroundImageUrl, setBackgroundImageUrl] = useState(defaultBackgroundImageUrl);
 
     const LOCAL_STORAGE_KEY = 'background-image-url';
     useEffect(() => {
