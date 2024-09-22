@@ -15,4 +15,4 @@ export default function Card({ country, name, year, imageUrl, description }: Pro
     );
 }
 
-type Props = Landmark;
+type Props = Omit<Landmark, 'region'>;
