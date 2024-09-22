@@ -48,6 +48,11 @@ export default function EmailForm() {
                     </button>
                 </div>
             </div>
+            <div className={`mt-[0.563rem] flex justify-center ${isEmpty || isValid ? 'hidden' : ''}`}>
+                <div className="w-[31.25rem] pl-4 text-left font-exo-2 font-light tracking-[-0.015rem] text-[#ff6633]">
+                    Please enter a valid email!
+                </div>
+            </div>
         </form>
     );
 
