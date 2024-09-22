@@ -4,8 +4,19 @@ import { useState } from 'react';
 export default function EmailForm() {
     const [value, setValue] = useState('');
 
+    const inputVariants = {
+        default:
+            'h-[3.125rem] w-[31.25rem] rounded-[7px] border border-solid border-white bg-[#ffffff1a] py-4 pl-4 pr-[3.125rem] font-exo-2 text-base tracking-[-0.015rem] text-white backdrop-blur-[0.625rem] placeholder:font-exo-2 placeholder:text-base placeholder:tracking-[-0.015rem] placeholder:text-white focus:outline-none',
+        valid: 'h-[3.125rem] w-[31.25rem] rounded-[7px] border border-solid border-[#00C300] bg-[#ffffff1a] py-4 pl-4 pr-[3.125rem] font-exo-2 text-base tracking-[-0.015rem] text-white backdrop-blur-[0.625rem] placeholder:font-exo-2 placeholder:text-base placeholder:tracking-[-0.015rem] placeholder:text-white focus:outline-none',
+        inValid:
+            'h-[3.125rem] w-[31.25rem] rounded-[7px] border border-solid border-[#FF6633] bg-[#ffffff1a] py-4 pl-4 pr-[3.125rem] font-exo-2 text-base tracking-[-0.015rem] text-white backdrop-blur-[0.625rem] placeholder:font-exo-2 placeholder:text-base placeholder:tracking-[-0.015rem] placeholder:text-white focus:outline-none',
+    };
+
+    const isEmpty = value.length === 0;
     const isValid = validateEmail(value);
     console.log(isValid);
+
+    const inputClass = isEmpty ? inputVariants.default : isValid ? inputVariants.valid : inputVariants.inValid;
 
     return (
         <form action="" noValidate onSubmit={handleSubmit}>
@@ -26,10 +37,14 @@ export default function EmailForm() {
                         placeholder="Enter your email"
                         value={value}
                         onChange={handleChange}
-                        className="h-[3.125rem] w-[31.25rem] rounded-[7px] border border-solid border-white bg-[#ffffff1a] py-4 pl-4 pr-[3.125rem] font-exo-2 text-base tracking-[-0.015rem] text-white backdrop-blur-[0.625rem] placeholder:font-exo-2 placeholder:text-base placeholder:tracking-[-0.015rem] placeholder:text-white"
+                        className={inputClass}
                     />
-                    <button type="submit" className="absolute inset-y-0 right-[10px]" disabled>
-                        <img src={paperPlaneUrl} alt="submit button" className="opacity-50" />
+                    <button type="submit" className="absolute inset-y-0 right-[10px]" disabled={isEmpty || !isValid}>
+                        <img
+                            src={paperPlaneUrl}
+                            alt="submit button"
+                            className={isEmpty || !isValid ? 'opacity-50' : 'opacity-100'}
+                        />
                     </button>
                 </div>
             </div>
