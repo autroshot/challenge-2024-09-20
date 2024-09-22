@@ -1,4 +1,8 @@
+import { useState } from 'react';
+
 export default function EmailForm() {
+    const [value, setValue] = useState('');
+
     return (
         <form action="" noValidate onSubmit={handleSubmit}>
             <div>
@@ -10,7 +14,14 @@ export default function EmailForm() {
                 </label>
             </div>
             <div className="mt-4">
-                <input type="email" id="email" name="email" placeholder="Enter your email" />
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    value={value}
+                    onChange={handleChange}
+                />
             </div>
         </form>
     );
@@ -23,5 +34,9 @@ export default function EmailForm() {
         const email = target.email.value;
 
         alert(`Your subscription is complete with an email to ${email}`);
+    }
+
+    function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+        setValue(e.target.value);
     }
 }
